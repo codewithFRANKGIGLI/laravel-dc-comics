@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50);
             $table->text('description')->nullable();
-            $table->string('image');
+            $table->string('thumb');
             $table->string('series', 50);
             $table->string('price', 10);
             $table->string('type', 50);
