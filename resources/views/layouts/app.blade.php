@@ -17,6 +17,14 @@
 
 <body>
 
+    <header>
+        <div class="container text-center">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm gap-3">
+                <a href="{{ route('home') }}" class="btn btn-success">Home</a>
+                <a href="{{ route('comics.index') }}" class="btn btn-success">Collection</a>
+            </nav>
+        </div>
+    </header>
     <main>
         @yield('content')
     </main>
