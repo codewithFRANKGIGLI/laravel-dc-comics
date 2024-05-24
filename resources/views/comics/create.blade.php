@@ -30,7 +30,7 @@
                 <label for="type">Tipo</label>
                 <select class="form-control" id="type" name="type">
                     <option value="comic book">Comic Book</option>
-                    <option value="trade paperback">Graphic Novel</option>
+                    <option value="graphic novel">Graphic Novel</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success m-2">Aggiungi</button>

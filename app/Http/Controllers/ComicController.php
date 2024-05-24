@@ -41,12 +41,13 @@ class ComicController extends Controller
     {
         $formData = $request->all();
         $newComic = new Comic();
-        $newComic->title = $formData['title'];
-        $newComic->description = $formData['description'];
-        $newComic->thumb = $formData['thumb'];
-        $newComic->price = $formData['price'];
-        $newComic->series = $formData['series'];
-        $newComic->type = $formData['type'];
+        // $newComic->title = $formData['title'];
+        // $newComic->description = $formData['description'];
+        // $newComic->thumb = $formData['thumb'];
+        // $newComic->price = $formData['price'];
+        // $newComic->series = $formData['series'];
+        // $newComic->type = $formData['type'];
+        $newComic->fillable($formData);
         $newComic->save();
 
         return redirect()->route('comics.show', ['comic'=>$newComic->id]);
@@ -70,6 +71,10 @@ class ComicController extends Controller
         ];
         return view('comics.show', $data);
     }
+    // versione breve dello show
+    // public function show(Comic $comic) {
+    //     return view('comics.show', compact('comic');
+    // }
 
     /**
      * Show the form for editing the specified resource.
