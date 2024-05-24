@@ -60,7 +60,11 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        $comic = Comic::find($id);
+        $comic = Comic::findOrFail($id);
+        // se uso solo find devo usare if:
+        // if(!$comic) {
+        //     abort(404);
+        // };
         $data = [
             'comic' => $comic
         ];
