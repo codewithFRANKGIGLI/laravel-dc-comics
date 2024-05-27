@@ -29,6 +29,7 @@
             <div class="form-group m-2">
                 <label for="type">Tipo</label>
                 <select class="form-control" id="type" name="type">
+                    <option selected value=""></option>
                     <option value="comic book">Comic Book</option>
                     <option value="graphic novel">Graphic Novel</option>
                 </select>
