@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comic;
+// use per validator
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -39,7 +41,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        // validation
+        // $request->validate([
+            // 'title' => 'required|min:5|max:50',
+            // 'description' => 'required|max:255',
+            // 'thumb' => 'required|max:255',
+            // 'price' => 'required|max:255',
+        // ]);
+        // create comic + validazione
         $formData = $request->all();
+        $this->validation($formData);
         $newComic = new Comic();
         // $newComic->title = $formData['title'];
         // $newComic->description = $formData['description'];
@@ -100,6 +111,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $formData = $request->all();
+        $this->validation($formData);
         $comic = Comic::findOrFail($id);
         $form_data = $request->all();
         $comic->update($form_data);
@@ -117,5 +130,26 @@ class ComicController extends Controller
         $comic = Comic::findOrFail($id);
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+    // funzione per la validation
+    private function validation($data) {
+        $validator = Validator::make(
+            $data,
+            [
+                'title' => 'required|min:5|max:50',
+                'description' => 'required|max:255',
+                'thumb' => 'required|max:255',
+                'price' => 'nullable',
+            ],
+            [
+                'title.required' => 'Il titolo è obbligatorio',
+                'title.min' => 'Il titolo deve avere almeno 5 caratteri',
+                'title.max' => 'Il titolo deve avere al massimo 50 caratteri',
+                'description.required' => 'La descrizione è obbligatoria',
+                'description.max' => 'La descrizione deve avere al massimo 255 caratteri',
+            ]
+        )->validate();
+        return $validator;
     }
 }
