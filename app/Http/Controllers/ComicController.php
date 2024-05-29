@@ -138,7 +138,7 @@ class ComicController extends Controller
             $data,
             [
                 'title' => 'required|min:5|max:50',
-                'description' => 'required|max:255',
+                'description' => 'required|min:50',
                 'thumb' => 'required|max:255',
                 'price' => 'nullable',
             ],
@@ -147,7 +147,7 @@ class ComicController extends Controller
                 'title.min' => 'Il titolo deve avere almeno 5 caratteri',
                 'title.max' => 'Il titolo deve avere al massimo 50 caratteri',
                 'description.required' => 'La descrizione è obbligatoria',
-                'description.max' => 'La descrizione deve avere al massimo 255 caratteri',
+                'description.max' => 'La descrizione deve avere almeno 50 caratteri',
             ]
         )->validate();
         return $validator;

@@ -22,6 +22,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm gap-3">
                 <a href="{{ route('home') }}" class="btn btn-success">Home</a>
                 <a href="{{ route('comics.index') }}" class="btn btn-success">Collection</a>
+                <a href="{{ route('comics.create') }}" class="btn btn-success">AGGIUNGI UN COMIC ALLA COLLEZIONE</a>
             </nav>
         </div>
     </header>
