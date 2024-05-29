@@ -148,6 +148,7 @@ class ComicController extends Controller
                 'title.max' => 'Il titolo deve avere al massimo 50 caratteri',
                 'description.required' => 'La descrizione è obbligatoria',
                 'description.max' => 'La descrizione deve avere almeno 50 caratteri',
+                'thumb.required' => 'Il campo immagine deve avere un URL valido'
             ]
         )->validate();
         return $validator;
